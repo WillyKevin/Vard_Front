@@ -1,0 +1,161 @@
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+.animate-slide-down {
+    animation: slideDown 0.6s ease-in-out forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.6s ease-in-out forwards;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes marquee-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 12s linear infinite;
+}
+
+.animate-marquee-reverse {
+    animation: marquee-reverse 20s linear infinite;
+}
+
+.shadow-wrapper {
+    position: relative;
+}
+
+.shadow-wrapper::before,
+.shadow-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.shadow-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(241, 242, 244, 0.9), transparent);
+}
+
+.shadow-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(241, 242, 244, 0.9), transparent);
+}
+
+.caret {
+    display: inline-block;
+    width: 1ch;
+    animation: blink 0.8s steps(1) infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes floatDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes dotScroll {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+.scroll-indicator {
+    animation: floatDown 2s ease-in-out infinite;
+}
+
+.scroll-dot {
+    animation: dotScroll 2s ease-in-out infinite;
+}
+
+@keyframes progress-animation {
+    from {
+        stroke-dashoffset: 100;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.progress-circle {
+    stroke-dashoffset: 100;
+    animation: progress-animation 5s linear forwards;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}

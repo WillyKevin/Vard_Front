@@ -1,0 +1,446 @@
+<div class="flex min-h-screen flex-col bg-[#F1F2F4]">
+  <div class="flex-grow">
+    <!-- HEADER -->
+    <div class="fixed top-0 left-0 right-0 z-50 px-4">
+      <div class="mx-auto max-w-2xl xl:max-w-4xl">
+        <div class="py-8 xl:py-12">
+          <div class="flex items-center justify-between bg-[#202124]/75 backdrop-blur-xs h-16 px-2 rounded-full">
+            <img src="assets/images/Logo_Completa.png" alt="..." class="h-[56px] pl-2">
+            <div class="hidden xl:flex bg-[#000000] rounded-full py-2 px-4 items-center justify-center gap-x-6">
+              <button type="button"
+                class="text-[#FFFFFF] font-semibold tracking-widest cursor-pointer hover:text-[#828388] transition">Login</button>
+              <button type="button"
+                class="flex items-center bg-[#121212] text-[#FFFFFF] rounded-full px-4 py-1.5 gap-4 font-semibold tracking-widest cursor-pointer shadow-[0_0_10px_#ECC710] animate-pulse hover:animate-none hover:shadow-[0_0_10px_#FFFFFF] transition">
+                Cadastrar
+                <svg class="size-4 text-[#FFFFFF]" xmlns="http://www.w3.org/2000/svg" width="72" height="56"
+                  fill="currentColor" viewBox="0 0 72 56">
+                  <path
+                    d="M48 0L42.36 5.64L48 11.32L56.68 20H20C8.96 20 0 28.96 0 40V56H8V40C8 33.4 13.4 28 20 28H56.68L48 36.68L42.36 42.32L48 48L72 24L48 0Z" />
+                </svg>
+              </button>
+            </div>
+            <div class="flex xl:hidden bg-[#000000] rounded-full py-2 px-4 items-center justify-center gap-x-6">
+              <p class="text-[#FFFFFF] font-semibold">Menu</p>
+              <button type="button" (click)="toggleOverlay()"
+                class="flex items-center rounded-full p-1.5 gap-4 bg-[#121212] text-[#FFFFFF] cursor-pointer shadow-[0_0_10px_#ECC710] animate-pulse hover:animate-none hover:shadow-[0_0_10px_#FFFFFF] transition">
+                <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                  aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="showOverlay" [ngClass]="isClosing ? 'animate-slide-up' : 'animate-slide-down'"
+      class="fixed top-0 left-0 w-full h-full overflow-y-auto bg-[#000000]/75 backdrop-blur-md z-50 transition-all duration-700 ease-in-out">
+      <div class="flex flex-col items-center justify-center h-full gap-8">
+        <button type="button" class="text-[#FFFFFF] hover:text-[#828388] cursor-pointer transition"
+          (click)="toggleOverlay()">
+          <svg class="size-8" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 384 512">
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+          </svg>
+        </button>
+        <button type="button"
+          class="text-[#FFFFFF] text-xl font-semibold tracking-widest cursor-pointer hover:text-[#828388] transition">Login</button>
+        <button type="button"
+          class="flex items-center justify-between bg-[#121212] text-[#FFFFFF] rounded-full w-full max-w-3xs px-4 py-1.5 gap-4 font-semibold tracking-widest cursor-pointer shadow-[0_0_10px_#0152F8] animate-pulse hover:animate-none hover:shadow-[0_0_10px_#FFFFFF] transition">
+          Cadastrar
+          <svg class="size-4 text-[#FFFFFF]" xmlns="http://www.w3.org/2000/svg" width="72" height="56"
+            fill="currentColor" viewBox="0 0 72 56">
+            <path
+              d="M48 0L42.36 5.64L48 11.32L56.68 20H20C8.96 20 0 28.96 0 40V56H8V40C8 33.4 13.4 28 20 28H56.68L48 36.68L42.36 42.32L48 48L72 24L48 0Z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- SECTION 1 -->
+<div class="relative overflow-hidden w-full h-screen">
+  <!-- Imagem estática opcional abaixo do vídeo (camada base, caso o vídeo falhe) -->
+  <!-- <img src="assets/images/AgroSense-Equipe.jpeg" alt="..." class="absolute inset-0 w-full h-full object-cover z-0"> -->
+  
+  <!-- Vídeo de fundo -->
+  <video [autoplay]="true" [muted]="true" [loop]="true" [playsInline]="true"
+    class="absolute inset-0 w-full h-full object-cover z-0 opacity-90">
+    <source src="assets/videos/Vard_Background.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Gradiente escuro inferior -->
+  <div class="absolute bottom-0 z-10 left-0 w-full h-96 bg-gradient-to-b from-transparent to-[#000000] pointer-events-none">
+  </div>
+
+  <!-- Conteúdo central com imagem sobreposta -->
+  <div class="relative z-20 flex flex-col items-center justify-center h-full text-center px-4 gap-y-4">
+    <!-- Imagem com sombra e texto sobreposto -->
+    <div class="relative w-full max-w-[700px] aspect-[2/1] shadow-lg rounded overflow-hidden animate-slide-down">
+      <img src="assets/images/Vard_CardBG.png" alt="Equipe AgroSense"  class="w-full h-full object-cover" />
+      <!-- <div class="absolute bottom-0 w-full bg-[#ECC710] bg-opacity-60 text-white text-sm text-center px-3 py-2">
+        AgroSense - Inovação no Campo para o produtor
+      </div> -->
+    </div>
+  </div>
+</div>
+
+    <!-- SECTION 2 -->
+    <div class="mx-auto max-w-2xl xl:max-w-7xl px-4">
+      <div class="py-8 xl:py-12">
+        <div class="mx-auto grid grid-cols-1 xl:grid-cols-2 items-center justify-center gap-4">
+          <div class="flex flex-col w-full justify-center items-center xl:justify-start xl:items-start xl:max-w-md">
+            <div class="flex items-center gap-2 pb-2">
+              <svg class="h-6 text-[#ECC710]" xmlns="http://www.w3.org/2000/svg" width="8" height="72"
+                fill="currentColor" viewBox="0 0 8 72">
+                <path d="M0 68L0 4C0 1.8 1.8 0 4 0C6.2 0 8 1.8 8 4L8 68C8 70.2 6.2 72 4 72C1.8 72 0 70.2 0 68Z" />
+              </svg>
+              <p class="text-[#828388] font-semibold">Insights</p>
+            </div>
+            <div class="text-center xl:text-start py-2 space-y-4">
+              <p class="text-[#202124] text-2xl md:text-4xl font-semibold">{{ slides[currentSlide].title }}</p>
+              <p class="text-[#828388]">
+                {{ slides[currentSlide].description }}
+              </p>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="relative aspect-video max-w-2xl w-full rounded-4xl overflow-hidden">
+              <div class="flex transition-transform duration-700 ease-in-out h-full"
+                [style.transform]="'translateX(-' + currentSlide * 100 + '%)'" (touchstart)="onTouchStart($event)"
+                (touchend)="onTouchEnd($event)">
+                <div *ngFor="let slide of slides"
+                  class="group relative w-full h-full aspect-video bg-cover bg-center bg-no-repeat"
+                  [ngStyle]="{ 'background-image': 'url(' + slide.backgroundImage + ')' }">
+                  <!-- esmaecer carossel de img -->
+                  <div class="absolute inset-0 bg-[#202124]/10"></div> 
+                </div>
+              </div>
+            </div>
+            <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-4 z-20">
+              <button (click)="togglePause()" class="relative size-[40px] text-[#FFFFFF] focus:outline-none">
+                <svg class="size-full" viewBox="0 0 36 36">
+                  <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none"
+                    stroke="#ffffff40" stroke-width="2" />
+                  <path *ngIf="!isPaused && showAnimation" class="progress-circle"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none"
+                    stroke="#ffffff" stroke-width="2" stroke-dasharray="100, 100" />
+                </svg>
+                <div *ngIf="!isPaused" class="absolute inset-0 flex items-center justify-center">
+                  <svg class="size-[12px] text-[#FFFFFF]" xmlns="http://www.w3.org/2000/svg" width="48" height="56"
+                    fill="currentColor" viewBox="0 0 48 56">
+                    <path
+                      d="M8 56C12.4 56 16 52.4 16 48V8C16 3.6 12.4 0 8 0C3.6 0 0 3.6 0 8V48C0 52.4 3.6 56 8 56ZM32 8V48C32 52.4 35.6 56 40 56C44.4 56 48 52.4 48 48V8C48 3.6 44.4 0 40 0C35.6 0 32 3.6 32 8Z" />
+                  </svg>
+                </div>
+                <div *ngIf="isPaused" class="absolute inset-0 flex items-center justify-center">
+                  <svg class="size-[12px] text-[#FFFFFF]" xmlns="http://www.w3.org/2000/svg" width="41" height="50"
+                    fill="currentColor" viewBox="0 0 41 50">
+                    <path
+                      d="M0 4.00562V45.4456C0 48.6056 3.48 50.5256 6.16 48.8056L38.72 28.0856C41.2 26.5256 41.2 22.9256 38.72 21.3256L6.16 0.645618C3.48 -1.07438 0 0.845618 0 4.00562Z" />
+                  </svg>
+                </div>
+              </button>
+              <div class="flex gap-2">
+                <ng-container *ngFor="let slide of slides; let i = index">
+                  <button class="size-[14px] rounded-full border border-[#FFFFFF] transition-colors duration-300"
+                    [class.bg-[#FFFFFF]]="i === currentSlide" [class.bg-transparent]="i !== currentSlide"
+                    (click)="resetTimerAndSelectSlide(i)">
+                  </button>
+                </ng-container>
+              </div>
+            </div>
+            <div class="hidden xl:block">
+              <button *ngIf="currentSlide !== 0"
+                (click)="resetTimerAndSelectSlide((currentSlide - 1 + slides.length) % slides.length)"
+                class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 bg-[#202124] ring ring-transparent hover:ring-[#0152F8] text-[#FFFFFF] rounded-full w-12 h-12 shadow-lg flex items-center justify-center transition cursor-pointer">
+                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+            </div>
+            <div class="hidden xl:block">
+              <button (click)="resetTimerAndSelectSlide((currentSlide + 1) % slides.length)"
+                class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-20 bg-[#202124] ring ring-transparent hover:ring-[#0152F8] text-[#FFFFFF] rounded-full w-12 h-12 shadow-lg flex items-center justify-center transition cursor-pointer">
+                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SECTION 3 -->
+    <div class="mx-auto max-w-2xl xl:max-w-7xl px-4">
+      <div class="py-8 xl:py-12">
+        <div class="mx-auto grid grid-cols-1 xl:grid-cols-3 auto-rows-fr items-center justify-center gap-4">
+          <video #videoRef *ngFor="let videoIndex of videoOrder; let i = index" controls [loop]="true"
+            [playsInline]="true" (click)="swapWithCenter(i)" (touchstart)="swapWithCenter(i)"
+            [class]="'relative rounded-4xl aspect-video transition-all duration-300 cursor-pointer ' + (i === 1 ? 'xl:scale-105 shadow-[0_0_40px_#0152F8]' : 'xl:scale-90')">
+            <source [src]="videoSources[videoIndex]" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+    <!-- SECTION 4 -->
+    <div class="bg-[radial-gradient(circle_at_center,#292929,#000000)]">
+      <div class="mx-auto max-w-2xl xl:max-w-7xl px-4">
+        <div class="py-8 xl:py-12">
+          <div class="mx-auto grid grid-cols-1 xl:grid-cols-2 items-center justify-center gap-4">
+            <div class="flex flex-col w-full justify-center items-center xl:justify-start xl:items-start xl:max-w-md">
+              <div class="flex items-center gap-2 pb-2">
+                <svg class="h-6 text-[#ECC710]" xmlns="http://www.w3.org/2000/svg" width="8" height="72"
+                  fill="currentColor" viewBox="0 0 8 72">
+                  <path d="M0 68L0 4C0 1.8 1.8 0 4 0C6.2 0 8 1.8 8 4L8 68C8 70.2 6.2 72 4 72C1.8 72 0 70.2 0 68Z" />
+                </svg>
+                <p class="text-[#828388] font-semibold">Saiba Mais</p>
+              </div>
+              <p class="text-[#FFFFFF] text-2xl md:text-4xl font-semibold pb-8">Projeto V.A.R.D</p>
+              <div class="flex flex-col items-start gap-6 w-full">
+                <div class="flex items-center justify-between bg-[#F1F2F4] rounded-full p-2 w-full">
+                  <div class="flex items-center gap-2">
+                    <div class="p-[6px] rounded-full ring-2 ring-[#ECC710]">
+                      <svg class="size-4 text-[#202124]" xmlns="http://www.w3.org/2000/svg" width="93" height="54"
+                        fill="currentColor" viewBox="0 0 93 54">
+                        <path
+                          d="M70.36 5.64L64.72 0L39.36 25.36L45 31L70.36 5.64ZM87.32 0L45 42.32L28.28 25.64L22.64 31.28L45 53.64L93 5.64L87.32 0ZM0 31.28L22.36 53.64L28 48L5.68 25.64L0 31.28Z" />
+                      </svg>
+                    </div>
+                    <p class="text-[#202124] font-semibold">Campeões 3ª Edição Desafio De Holambra</p>
+                  </div>
+                  <svg class="size-4 text-[#26B203] mx-2" xmlns="http://www.w3.org/2000/svg" width="56" height="48"
+                    fill="currentColor" viewBox="0 0 56 48">
+                    <path d="M5.64 0L0 5.64L18.32 24L0 42.36L5.64 48L29.64 24L5.64 0Z" />
+                    <path d="M32 0L26.36 5.64L44.68 24L26.36 42.36L32 48L56 24L32 0Z" />
+                  </svg>
+                </div>
+                <div class="flex items-center justify-between bg-[#F1F2F4] rounded-full p-2 w-full">
+                  <div class="flex items-center gap-2">
+                    <div class="p-[6px] rounded-full ring-2 ring-[#ECC710]">
+                      <svg class="size-4 text-[#202124]" xmlns="http://www.w3.org/2000/svg" width="93" height="54"
+                        fill="currentColor" viewBox="0 0 93 54">
+                        <path
+                          d="M70.36 5.64L64.72 0L39.36 25.36L45 31L70.36 5.64ZM87.32 0L45 42.32L28.28 25.64L22.64 31.28L45 53.64L93 5.64L87.32 0ZM0 31.28L22.36 53.64L28 48L5.68 25.64L0 31.28Z" />
+                      </svg>
+                    </div>
+                    <p class="text-[#202124] font-semibold">Projeto em parceria com Instituto Biológico de SP</p>
+                  </div>
+                  <svg class="size-4 text-[#26B203] mx-2" xmlns="http://www.w3.org/2000/svg" width="56" height="48"
+                    fill="currentColor" viewBox="0 0 56 48">
+                    <path d="M5.64 0L0 5.64L18.32 24L0 42.36L5.64 48L29.64 24L5.64 0Z" />
+                    <path d="M32 0L26.36 5.64L44.68 24L26.36 42.36L32 48L56 24L32 0Z" />
+                  </svg>
+                </div>
+                <div class="flex items-center justify-between bg-[#F1F2F4] rounded-full p-2 w-full">
+                  <div class="flex items-center gap-2">
+                    <div class="p-[6px] rounded-full ring-2 ring-[#ECC710]">
+                      <svg class="size-4 text-[#202124]" xmlns="http://www.w3.org/2000/svg" width="93" height="54"
+                        fill="currentColor" viewBox="0 0 93 54">
+                        <path
+                          d="M70.36 5.64L64.72 0L39.36 25.36L45 31L70.36 5.64ZM87.32 0L45 42.32L28.28 25.64L22.64 31.28L45 53.64L93 5.64L87.32 0ZM0 31.28L22.36 53.64L28 48L5.68 25.64L0 31.28Z" />
+                      </svg>
+                    </div>
+                    <p class="text-[#202124] font-semibold">Proposta intuitiva e simples para uso de campo</p>
+                  </div>
+                  <svg class="size-4 text-[#26B203] mx-2" xmlns="http://www.w3.org/2000/svg" width="56" height="48"
+                    fill="currentColor" viewBox="0 0 56 48">
+                    <path d="M5.64 0L0 5.64L18.32 24L0 42.36L5.64 48L29.64 24L5.64 0Z" />
+                    <path d="M32 0L26.36 5.64L44.68 24L26.36 42.36L32 48L56 24L32 0Z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="relative max-w-2xl w-full rounded-4xl overflow-hidden">
+              <video #bgVideo [autoplay]="true" [muted]="true" [loop]="true" [playsInline]="true"
+                class="aspect-video w-full">
+                <source src="assets/videos/Vard_Group.mp4" type="video/mp4" />
+              </video>
+              <button type="button" class="absolute z-20 bottom-4 right-4 bg-[#202124] rounded-full p-4 cursor-pointer"
+                (click)="toggleVideo(bgVideo)">
+                <svg *ngIf="isPlaying" class="size-4 text-white" xmlns="http://www.w3.org/2000/svg" width="48"
+                  height="56" fill="currentColor" viewBox="0 0 48 56">
+                  <path
+                    d="M8 56C12.4 56 16 52.4 16 48V8C16 3.6 12.4 0 8 0C3.6 0 0 3.6 0 8V48C0 52.4 3.6 56 8 56ZM32 8V48C32 52.4 35.6 56 40 56C44.4 56 48 52.4 48 48V8C48 3.6 44.4 0 40 0C35.6 0 32 3.6 32 8Z" />
+                </svg>
+                <svg *ngIf="!isPlaying" class="size-4 text-white" xmlns="http://www.w3.org/2000/svg" width="41"
+                  height="50" fill="currentColor" viewBox="0 0 41 50">
+                  <path
+                    d="M0 4.00562V45.4456C0 48.6056 3.48 50.5256 6.16 48.8056L38.72 28.0856C41.2 26.5256 41.2 22.9256 38.72 21.3256L6.16 0.645618C3.48 -1.07438 0 0.845618 0 4.00562Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SECTION 5 -->
+    <div class="mx-auto max-w-2xl xl:max-w-7xl px-4">
+      <div class="py-8 xl:py-12">
+        <div class="mx-auto grid grid-cols-1 xl:grid-cols-2 items-center justify-center gap-4">
+          <div class="flex flex-col w-full justify-center items-center xl:justify-start xl:items-start xl:max-w-md">
+            <div class="flex items-center gap-2 pb-2">
+              <svg class="h-6 text-[#ECC710]" xmlns="http://www.w3.org/2000/svg" width="8" height="72"
+                fill="currentColor" viewBox="0 0 8 72">
+                <path d="M0 68L0 4C0 1.8 1.8 0 4 0C6.2 0 8 1.8 8 4L8 68C8 70.2 6.2 72 4 72C1.8 72 0 70.2 0 68Z" />
+              </svg>
+              <p class="text-[#828388] font-semibold">FAQ's</p>
+            </div>
+            <div class="text-center xl:text-start py-2 space-y-4">
+              <p class="text-[#202124] text-2xl md:text-4xl font-semibold">Perguntas Frequentes</p>
+              <p class="text-[#828388]">
+                Abaixo, respondemos às principais dúvidas sobre o funcionamento do V.A.R.D & Bicudo´s, incluindo o uso de IA, tipos de pragas identificadas, armadilhas utilizadas, benefícios para o produtor e detalhes da parceria com o Instituto Biológico.
+              </p>
+            </div>
+          </div>
+          <div class="py-2 xl:py-8">
+            <ng-container *ngFor="let faq of faqs; let i = index">
+              <button type="button" (click)="toggleFAQ(i)"
+                class="border-b border-[#DEDFE4] py-4 my-2 w-full h-full outline-none cursor-pointer hover:opacity-75 transition">
+                <div class="flex flex-row items-center justify-between gap-2">
+                  <p class="text-[#232429] text-md font-semibold">{{ faq.title }}</p>
+                  <svg [ngClass]="{ 'rotate-180': faq.isOpen }" class="size-4 text-[#828388] transition"
+                    xmlns="http://www.w3.org/2000/svg" width="45" height="27" fill="currentColor" viewBox="0 0 45 27">
+                    <path
+                      d="M6.85 1.17L22.37 16.69L37.89 1.17C39.45 -0.39 41.97 -0.39 43.53 1.17C45.09 2.73 45.09 5.25 43.53 6.81L25.17 25.17C23.61 26.73 21.09 26.73 19.53 25.17L1.17 6.81C-0.39 5.25 -0.39 2.73 1.17 1.17C2.73 -0.35 5.29 -0.39 6.85 1.17Z" />
+                  </svg>
+                </div>
+              </button>
+              <div [ngClass]="faq.isOpen ? 'max-h-96 opacity-100 my-4' : 'max-h-0 opacity-0'"
+                class="overflow-hidden transition-all duration-700 ease-in-out w-full">
+                <p class="text-[#232429] text-base/7 text-justify py-2">
+                  {{ faq.description }}
+                </p>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SECTION 6 -->
+    <div class="mx-auto max-w-2xl xl:max-w-7xl px-4">
+      <div class="py-8 xl:py-12">
+        <div class="mx-auto grid grid-cols-1 xl:grid-cols-2 items-center justify-center gap-y-8">
+          <div class="flex flex-col w-full justify-center items-center xl:justify-start xl:items-start xl:max-w-md">
+            <div class="flex items-center gap-2 pb-2">
+              <svg class="h-6 text-[#ECC710]" xmlns="http://www.w3.org/2000/svg" width="8" height="72"
+                fill="currentColor" viewBox="0 0 8 72">
+                <path d="M0 68L0 4C0 1.8 1.8 0 4 0C6.2 0 8 1.8 8 4L8 68C8 70.2 6.2 72 4 72C1.8 72 0 70.2 0 68Z" />
+              </svg>
+              <p class="text-[#828388] font-semibold">Conecte-se e expanda</p>
+            </div>
+            <div class="text-center xl:text-start py-2 space-y-4">
+              <p class="text-[#202124] text-2xl md:text-4xl font-semibold">Integrações Simplificadas</p>
+              <p class="text-[#828388]">
+                Através de nossa plataforma voce verá nossos parceiros, podendo conhecer um pouco mais sobre nossa historia juntamente a um panorama geral do projeto
+              </p>
+            </div>
+          </div>
+          <div class="overflow-hidden w-full relative space-y-8 shadow-wrapper">
+            <div class="w-full overflow-hidden">
+              <div class="flex gap-12 animate-marquee">
+                <ng-container *ngFor="let i of [1, 2]">
+                  <img *ngFor="let j of [].constructor(12)" src="assets/images/Fatec_Logo.png" class="h-[92px]" />
+                </ng-container>
+              </div>
+            </div>
+            <div class="w-full overflow-hidden">
+              <div class="flex gap-12 animate-marquee-reverse">
+                <ng-container *ngFor="let i of [1, 2]">
+                  <img *ngFor="let j of [].constructor(12)" src="assets/images/LMPP_Logo.png" class="h-[36px]" />
+                </ng-container>
+              </div>
+            </div>
+            <div class="w-full overflow-hidden">
+              <div class="flex gap-12 animate-marquee">
+                <ng-container *ngFor="let i of [1, 2]">
+                  <img *ngFor="let j of [].constructor(12)" src="assets/images/IB_Logo.jpg" class="h-[82px]" />
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SECTION 7 -->
+  </div>
+  <!-- FOOTER -->
+  <div class="bg-[radial-gradient(circle_at_center,#292929,#000000)]">
+    <div class="mx-auto max-w-2xl xl:max-w-7xl px-4">
+      <div class="relative py-8 xl:py-12">
+        <div class="mx-auto grid grid-cols-1 xl:grid-cols-2 items-center justify-center gap-4 pb-16">
+          <div class="flex flex-col w-full justify-center items-center xl:justify-start xl:items-start xl:max-w-xs">
+            <img src="assets/images/Logo.png" alt="..." class="h-8">
+            <div class="py-8 w-full">
+              <div class="text-center xl:text-start pb-4">
+                <p class="text-[#FFFFFF] text-2xl font-semibold">Fale Conosco!</p>
+                <p class="text-[#828388] text-base/8">
+                  {{ typedTextFooter }}<span class="caret text-[#FFFFFF]">|</span>
+                </p>
+              </div>
+              <button type="button" (click)="copyContact()"
+                class="flex items-center justify-between w-full max-w-full rounded-full py-1.25 px-4 cursor-pointer shadow-[0_0_10px_#ECC710] animate-pulse hover:animate-none hover:shadow-[0_0_10px_#FFFFFF] transition">
+                <p class="text-[#FFFFFF]">{{ copiedContact ? 'Contato copiado!' : contact }}</p>
+                <svg class="size-[20px] text-[#FFFFFF]" xmlns="http://www.w3.org/2000/svg" width="76" height="88"
+                  fill="currentColor" viewBox="0 0 76 88">
+                  <path
+                    d="M56 0H8C3.6 0 0 3.6 0 8V64H8V8H56V0ZM68 16H24C19.6 16 16 19.6 16 24V80C16 84.4 19.6 88 24 88H68C72.4 88 76 84.4 76 80V24C76 19.6 72.4 16 68 16ZM68 80H24V24H68V80Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="py-8">
+            <div class="flex items-center justify-center gap-2 pb-6">
+              <svg class="h-6 text-[#ECC710]" xmlns="http://www.w3.org/2000/svg" width="8" height="72"
+                fill="currentColor" viewBox="0 0 8 72">
+                <path d="M0 68L0 4C0 1.8 1.8 0 4 0C6.2 0 8 1.8 8 4L8 68C8 70.2 6.2 72 4 72C1.8 72 0 70.2 0 68Z" />
+              </svg>
+              <p class="text-[#828388] tracking-widest">Siga-no em nossas Mídias Sociais</p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-8">
+              <a routerLink="#" class="group relative inline-block cursor-pointer">
+                <svg class="size-6 text-[#FFFFFF] transition-colors group-hover:text-[#828388]"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
+                  <path
+                    d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+                </svg>
+                <div
+                  class="absolute -bottom-1.5 left-0 h-[2px] w-full origin-center scale-x-0 transform bg-[#ECC710] transition-transform duration-300 ease-out group-hover:scale-x-100">
+                </div>
+              </a>
+              <a routerLink="#" class="group relative inline-block cursor-pointer">
+                <svg class="size-6 text-[#FFFFFF] transition-colors group-hover:text-[#828388]"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
+                  <path
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                </svg>
+                <div
+                  class="absolute -bottom-1.5 left-0 h-[2px] w-full origin-center scale-x-0 transform bg-[#ECC710] transition-transform duration-300 ease-out group-hover:scale-x-100">
+                </div>
+              </a>
+              <a routerLink="#" class="group relative inline-block cursor-pointer">
+                <svg class="size-6 text-[#FFFFFF] transition-colors group-hover:text-[#828388]"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 320 512">
+                  <path
+                    d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
+                </svg>
+                <div
+                  class="absolute -bottom-1.5 left-0 h-[2px] w-full origin-center scale-x-0 transform bg-[#ECC710] transition-transform duration-300 ease-out group-hover:scale-x-100">
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="absolute bottom-4 left-0 right-0 text-center text-[#828388]">
+          <div class="flex items-center justify-center gap-4 pb-2">
+            <a href="#" class="underline cursor-pointer hover:text-[#FFFFFF] transition">Termos de Uso</a>
+            <a href="#" class="underline cursor-pointer hover:text-[#FFFFFF] transition">Política de Privacidade</a>
+          </div>
+          <p>© 2025 Willy Rosa. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
