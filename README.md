@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # App
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
@@ -57,3 +58,6 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# Vard_Aplication
+>>>>>>> 6f5c3e75ede653958c2c2129eb870234b07666e2
