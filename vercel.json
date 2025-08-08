@@ -4,11 +4,17 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist/app" }
+      "config": { "distDir": "dist/app/browser" }
     }
   ],
-  "outputDirectory": "dist/app"
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "/index.html"
+    }
+  ]
 }
+
 
 
 
