@@ -127,9 +127,9 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   videoSources: string[] = [
-    'assets/videos/Vard_Campo.mp4',
-    'assets/videos/Vard_Video.mp4',
-    'assets/videos/Bicudos_Video.mp4'
+    'assets/videos/Vard_Campo_mod.mp4',
+    'assets/videos/Vard_Video_mod.mp4',
+    'assets/videos/Bicudos_Video_mod.mp4'
   ];
 
   videoOrder: number[] = [0, 1, 2];
