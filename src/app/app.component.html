@@ -63,10 +63,12 @@
   <!-- <img src="assets/images/AgroSense-Equipe.jpeg" alt="..." class="absolute inset-0 w-full h-full object-cover z-0"> -->
   
   <!-- Vídeo de fundo -->
-    <div class="relative overflow-hidden w-full h-screen">
-      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-90">
-        <source src="assets/videos/Vard_Background_mod.mp4" type="video/mp4" />
-      </video>
+
+  <video [autoplay]="true" [muted]="true" [loop]="true" [playsInline]="true"
+    class="absolute inset-0 w-full h-full object-cover z-0 opacity-90">
+    <source src="assets/videos/Vard_Background_mod.mp4" type="video/mp4" />
+  </video>
+
       <div
         class="absolute bottom-0 z-10 left-0 w-full h-96 bg-gradient-to-b from-transparent to-[#000000] pointer-events-none">
       </div>
@@ -244,9 +246,11 @@
             </div>
             <div class="relative max-w-2xl w-full rounded-4xl overflow-hidden">
 
-              <video #bgVideo autoplay muted loop playsinline class="aspect-video w-full">
+              <video #bgVideo autoplay muted loop playsinline
+                class="aspect-video w-full">
                 <source src="assets/videos/Vard_Group_mod.mp4" type="video/mp4" />
               </video>
+
               <button type="button" class="absolute z-20 bottom-4 right-4 bg-[#202124] rounded-full p-4 cursor-pointer"
                 (click)="toggleVideo(bgVideo)">
                 <svg *ngIf="isPlaying" class="size-4 text-white" xmlns="http://www.w3.org/2000/svg" width="48"
@@ -433,4 +437,5 @@
     </div>
   </div>
 </div>
+
 
